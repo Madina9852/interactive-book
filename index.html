@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Интерактивная книга</title>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Arimo', cursive, Arial, sans-serif;
+
+    /* 🔥 Новый фон: светло-зелёный + розово-красный */
+    background: linear-gradient(135deg, #b8ffb0, #ffb3b3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 15px;
+  }
+
+  .book {
+    width: 90vw;
+    max-width: 450px;
+    min-height: 650px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    padding: 30px 25px 40px;
+    animation: fadeIn 1.2s ease;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    color: #333;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 85%;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #6c63ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+    box-shadow: 0 6px 12px rgba(108, 99, 255, 0.4);
+    user-select: none;
+  }
+
+  .btn:hover {
+    background: #554ee0;
+    box-shadow: 0 8px 20px rgba(85, 78, 224, 0.6);
+  }
+
+  .illustrations {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .illustrations img {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+
+  .illustrations img:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  @media (max-width: 400px) {
+    .btn {
+      padding: 12px 24px;
+      font-size: 1rem;
+    }
+    .illustrations img {
+      width: 90px;
+      height: 90px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="book">
+    <h1>📖 Тәртіп елдің тұтқасы </h1>
+   <p><strong>«Тәрбиесіз берілген білім – адамзаттың қас жауы»</strong></p>
+    <a class="btn" href="page1.html">Бастау →</a>
+
+    <div class="illustrations">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 1" />
+      <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 2" />
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 3" />
+    </div>
+  </div>
+</body>
+</html>
