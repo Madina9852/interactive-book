@@ -4,15 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Интерактивная книга</title>
+
+<!-- Подключение шрифта Arimo (с "v=3", чтобы Safari всегда обновлял) -->
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap&v=3" rel="stylesheet">
+
 <style>
-   @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
 
   body {
     margin: 0;
-    font-family: 'Arimo', Arial, sans-serif;
-
+    font-family: 'Arimo', Arial, sans-serif; /* 100% Arimo */
     background: linear-gradient(135deg, #b8ffb0, #ffb3b3);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +26,7 @@
     max-width: 450px;
     min-height: 650px;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 25px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
     padding: 30px 25px 40px;
     animation: fadeIn 1.2s ease;
@@ -38,20 +39,20 @@
 
   h1 {
     text-align: center;
-    font-weight: 700;
+    font-weight: 700;       /* Жирный Arimo */
     font-size: 2.2rem;
-    margin-bottom: 12px;
-    color: #333;
+    margin-bottom: 16px;
+    color: #222;
   }
 
   p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
     text-align: center;
     margin-bottom: 30px;
-    max-width: 85%;
-    font-weight: 700;
+    font-weight: 400;      /* Нормальный вес */
+    max-width: 90%;
   }
 
   .btn {
@@ -61,9 +62,9 @@
     color: white;
     text-decoration: none;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 700;       /* Жирная кнопка */
     font-size: 1.1rem;
-    transition: background 0.3s;
+    transition: 0.3s;
     box-shadow: 0 6px 12px rgba(108, 99, 255, 0.4);
     user-select: none;
   }
@@ -79,13 +80,13 @@
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 100%;
+    width: 100%;
   }
 
   .illustrations img {
     width: 120px;
     height: 120px;
-    border-radius: 16px;
+    border-radius: 18px;
     object-fit: cover;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -102,10 +103,9 @@
   }
 
   @media (max-width: 400px) {
-    .btn {
-      padding: 12px 24px;
-      font-size: 1rem;
-    }
+    h1 { font-size: 1.8rem; }
+    p  { font-size: 1rem; }
+    .btn { padding: 12px 24px; font-size: 1rem; }
     .illustrations img {
       width: 90px;
       height: 90px;
@@ -113,16 +113,18 @@
   }
 </style>
 </head>
+
 <body>
   <div class="book">
     <h1>📖 Тәртіп елдің тұтқасы</h1>
     <p>«Тәрбиесіз берілген білім – адамзаттың қас жауы»</p>
+
     <a class="btn" href="page1.html">Бастау →</a>
 
     <div class="illustrations">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 1" />
-      <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 2" />
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 3" />
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 1">
+      <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 2">
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=150&q=80" alt="Иллюстрация 3">
     </div>
   </div>
 </body>
