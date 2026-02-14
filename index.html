@@ -23,7 +23,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ВЕРХНЯЯ ПАНЕЛЬ */
         .top-bar {
             width: 100%;
             height: 65px;
@@ -38,7 +37,6 @@
             z-index: 999;
         }
 
-        /* Новые кнопки */
         .nav-btn {
             padding: 12px 25px;
             font-size: 17px;
@@ -79,14 +77,13 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        /* Красная круглая кнопка */
         #spinButton {
             width: 160px;
             height: 160px;
             border-radius: 50%;
             border: 6px solid white;
             background: radial-gradient(circle, #ff4a4a, #b70000);
-            margin: 45px auto;
+            margin: 45px auto 10px auto;
             cursor: pointer;
             box-shadow: 0 0 25px rgba(255,0,0,0.6);
             transition: 0.2s ease;
@@ -97,4 +94,88 @@
         }
 
         #spinButton:active {
-            transform: scale(0.9
+            transform: scale(0.9);
+        }
+
+        /* Контейнер под кнопкой */
+        .under-button {
+            width: 80%;
+            max-width: 520px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end; /* вправо */
+        }
+
+        .next-page-btn {
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00c3ff, #005eff);
+            color: white;
+            transition: 0.2s;
+        }
+
+        .next-page-btn:hover {
+            transform: scale(1.08);
+        }
+
+        #resultText {
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <button class="nav-btn">Главная</button>
+        <button class="nav-btn">Игры</button>
+        <button class="nav-btn">Профиль</button>
+    </div>
+
+    <h1>🎮 Игровая страница</h1>
+
+    <div id="imageBox">
+        <img src="https://picsum.photos/600/400" alt="Игровая картинка">
+    </div>
+
+    <div id="spinButton"></div>
+
+    <!-- КНОПКА ВПЕРЁД -->
+    <div class="under-button">
+        <button class="next-page-btn" onclick="goToFirstPage()">
+            ➡ Вперёд на первую страницу
+        </button>
+    </div>
+
+    <div id="resultText">Нажми на кнопку!</div>
+
+    <script>
+        const spinButton = document.getElementById("spinButton");
+        const resultText = document.getElementById("resultText");
+
+        const messages = [
+            "🎉 Победа!",
+            "😎 Отличный результат!",
+            "🔥 Супер!",
+            "💎 Бонус!",
+            "❌ Попробуй ещё раз!"
+        ];
+
+        spinButton.addEventListener("click", () => {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            resultText.textContent = messages[randomIndex];
+        });
+
+        function goToFirstPage() {
+            window.location.href = "index.html"; // замените на нужную страницу
+        }
+    </script>
+
+</body>
+</html>
