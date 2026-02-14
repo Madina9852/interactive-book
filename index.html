@@ -11,170 +11,122 @@
             padding: 0;
             font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #ff7ac4, #47ff68, #ff3a3a);
-            background-size: 300% 300%;
-            animation: gradientMove 8s ease infinite;
-            color: white;
+            background: white;
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
+        /* ВЕРХНЯЯ ПАНЕЛЬ */
         .top-bar {
             width: 100%;
-            height: 65px;
+            height: 60px;
+            background: #eee;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 20px;
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(6px);
-            position: sticky;
-            top: 0;
-            z-index: 999;
+            padding: 0 20px;
+            gap: 10px;
+            box-sizing: border-box;
         }
 
         .nav-btn {
-            padding: 12px 25px;
-            font-size: 17px;
-            border-radius: 12px;
-            border: none;
+            padding: 10px 20px;
+            background: #ddd;
+            border-radius: 8px;
+            border: 1px solid #aaa;
             cursor: pointer;
-            color: white;
-            font-weight: bold;
-            background: linear-gradient(135deg, #ff4bd2, #2aff75, #ff2a2a);
-            background-size: 200% 200%;
-            animation: btnGradient 4s infinite alternate;
-            transition: transform 0.2s;
+            font-size: 16px;
+            transition: 0.2s;
         }
 
         .nav-btn:hover {
-            transform: scale(1.08);
-        }
-
-        @keyframes btnGradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            background: #ccc;
         }
 
         h1 {
-            font-size: 42px;
-            margin-top: 35px;
+            font-size: 40px;
+            margin-top: 30px;
+            font-weight: bold;
         }
 
         #imageBox {
             width: 80%;
-            max-width: 520px;
-            margin: 35px auto;
+            max-width: 500px;
+            margin: 30px auto;
         }
 
         #imageBox img {
             width: 100%;
-            border-radius: 14px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            display: block;
         }
 
+        /* красная кнопка */
         #spinButton {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             border: 6px solid white;
             background: radial-gradient(circle, #ff4a4a, #b70000);
-            margin: 45px auto 10px auto;
+            margin: 40px auto;
             cursor: pointer;
-            box-shadow: 0 0 25px rgba(255,0,0,0.6);
-            transition: 0.2s ease;
-        }
-
-        #spinButton:hover {
-            transform: scale(1.07);
-        }
-
-        #spinButton:active {
-            transform: scale(0.9);
-        }
-
-        /* Контейнер под кнопкой */
-        .under-button {
-            width: 80%;
-            max-width: 520px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: flex-end; /* вправо */
-        }
-
-        .next-page-btn {
-            padding: 10px 20px;
-            font-size: 15px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            background: linear-gradient(135deg, #00c3ff, #005eff);
-            color: white;
+            box-shadow: 0 0 15px rgba(255,0,0,0.4);
             transition: 0.2s;
         }
 
-        .next-page-btn:hover {
-            transform: scale(1.08);
-        }
-
-        #resultText {
-            font-size: 22px;
-            margin-top: 20px;
-            font-weight: bold;
+        #spinButton:active {
+            transform: scale(0.92);
         }
     </style>
 </head>
 
 <body>
 
+    <!-- ВЕРХНИЕ КНОПКИ -->
     <div class="top-bar">
-        <button class="nav-btn">Главная</button>
-        <button class="nav-btn">Игры</button>
-        <button class="nav-btn">Профиль</button>
+        <button class="nav-btn" onclick="history.back()">← Назад</button>
+        <button class="nav-btn" onclick="history.forward()">Вперёд →</button>
     </div>
 
-    <h1>🎮 Игровая страница</h1>
+    <h1>прокрути барабан:</h1>
 
     <div id="imageBox">
-        <img src="https://picsum.photos/600/400" alt="Игровая картинка">
+        <img id="slotImage" src="pdf/ludo.img" alt="image">
     </div>
 
     <div id="spinButton"></div>
 
-    <!-- КНОПКА ВПЕРЁД -->
-    <div class="under-button">
-        <button class="next-page-btn" onclick="goToFirstPage()">
-            ➡ Вперёд на первую страницу
-        </button>
-    </div>
-
-    <div id="resultText">Нажми на кнопку!</div>
-
     <script>
-        const spinButton = document.getElementById("spinButton");
-        const resultText = document.getElementById("resultText");
-
-        const messages = [
-            "🎉 Победа!",
-            "😎 Отличный результат!",
-            "🔥 Супер!",
-            "💎 Бонус!",
-            "❌ Попробуй ещё раз!"
+        const images = [
+            "pdf/ludo.img",
+            "pdf/narko.img",
+            "pdf/url.img"
         ];
 
-        spinButton.addEventListener("click", () => {
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            resultText.textContent = messages[randomIndex];
-        });
+        const imgElement = document.getElementById("slotImage");
+        const button = document.getElementById("spinButton");
 
-        function goToFirstPage() {
-            window.location.href = "index.html"; // замените на нужную страницу
-        }
+        let spinning = false;
+
+        button.addEventListener("click", () => {
+            if (spinning) return;
+            spinning = true;
+
+            let counter = 0;
+
+            // Быстрое перемешивание — 50 мс вместо 120
+            const spinInterval = setInterval(() => {
+                const randomImg = images[Math.floor(Math.random() * images.length)];
+                imgElement.src = randomImg;
+                counter++;
+            }, 50);
+
+            // Остановка через 1.5 секунды
+            setTimeout(() => {
+                clearInterval(spinInterval);
+                const finalImg = images[Math.floor(Math.random() * images.length)];
+                imgElement.src = finalImg;
+
+                spinning = false;
+            }, 1500);
+        });
     </script>
 
 </body>
